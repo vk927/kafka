@@ -1,0 +1,13 @@
+Kafka - is a publish/subscribe messaging model distributed log service
+
+Usage Scenario: when you have a server which mutlicasts the user activity logs to several other servers such as NoSQL DB and Hadoop ,there is a chance to loose some messages and to have high latecny in delivring messages
+
+kafka solves this problems --> your logs generator server acts as a producers and sends messages to kafka broker cluster and your NoSQL and Hadoop acts as consumers and subscribe to Kafka cluster and pulls these messages
+
+logs distribution in kafka is acording to the topic , partions and repliation factor
+
+when you want to send facbook user logs to NoSQL server and Hadoop then you should create a topic with name social and deep into that you can divide the topic into partitons such as americas, europe, asia
+
+Zookeeper is used to elect the leader broker in the kafka cluster,it monitors the kafka cluster health and when a leader broker is down it will elect another broker node as the leader.
+
+Earleir,zookeeper has dependencies with consumers and brokers but now they only with brokers
