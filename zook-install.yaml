@@ -1,0 +1,14 @@
+---
+- hosts: zookservers
+  
+
+  tasks:
+  - name: download zookeeper
+    get_url: url=http://mirror.reverse.net/pub/apache/zookeeper/zookeeper-3.4.8/zookeeper-3.4.8.tar.gz dest=~
+
+  - name: unrachive zookeeper
+    unarchive: src=~/zookeeper-3.4.8.tar.gz dest=~ copy=no mode=775
+ 
+  - name: copy the zookeeper config file 
+    copy: src=config_templates/zoo.cfg dest=~/zookeeper-3.4.8/conf mode=775
+
